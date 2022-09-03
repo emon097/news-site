@@ -19,7 +19,7 @@ const desplaycatagory = (news) => {
 
     `;
 
-    // toggleSpinner(true);
+    toggleSpinner(true);
     catagoryoption.appendChild(creatediv);
   }
 };
@@ -35,7 +35,12 @@ const desplayfullnews = (news) => {
   const CatagoryInfo = document.getElementById("catagory-info");
   CatagoryInfo.innerText = "";
   // desplay-notfound
-
+  const nofound = document.getElementById("Not-Found");
+  if (news.length === 0) {
+    nofound.classList.remove("d-none");
+  } else {
+    nofound.classList.add("d-none");
+  }
   for (const allNews of news) {
     const creatediv = document.createElement("div");
     creatediv.classList.add("col");
@@ -72,7 +77,7 @@ const desplayfullnews = (news) => {
       }')" class="btn btn-dark">Details<i class=" m-1 fa-solid fa-circle-right"></i></button>
     </div>
     `;
-    // toggleSpinner(false);
+    toggleSpinner(false);
     CatagoryInfo.appendChild(creatediv);
   }
 };
