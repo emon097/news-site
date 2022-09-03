@@ -40,9 +40,9 @@
               class="collapse navbar-collapse space"
               id="navbarTogglerDemo03"
             >
-              <form class="d-flex p-4" role="search">
-                <p class="mt-2 font" href="">news</p>
-                <p class="m-2 font" href="">blog</p>
+              <form class="d-flex p-1" role="search">
+                <a class="mt-2 font" href="">News</a>
+                <a class="m-2 font" href="">Blog</a>
                 <i class="fa-solid fa-headset p-1 fs-2"></i>
               </form>
             </div>
@@ -52,20 +52,27 @@
     </header>
     <main>
       <section>
-        <div id="catagory" class="d-flex catagory"></div>
+        <div id="catagory" class="text-center d-flex catagory"></div>
+        <div>
+          <h3>
+            <span id="lengthnews">4</span> items found for category
+            <span>Entertainment</span>
+          </h3>
+        </div>
+
         <div id="spinner" class="text-center d-none">
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
         <div id="Not-Found" class="text-center d-none">
-          <h4>not found</h4>
+          <h4>Not Found</h4>
         </div>
       </section>
       <section>
         <div
           id="catagory-info"
-          class="text-center row row-cols-1 row-cols-md-3 g-4 addpadinng"
+          class="text-center row row-cols-1 row-cols-md-3 addpadinng"
         ></div>
       </section>
 
@@ -77,7 +84,7 @@
         aria-labelledby="modaltitle"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div class="modal-dialog p-5">
           <div class="modal-content">
             <div class="modal-header">
               <button
@@ -87,11 +94,10 @@
                 aria-label="comment"
               ></button>
             </div>
-            <div id="details-section" class="modal-footer">
-              <button type="button" class="btn btn-dark">
-                Comment <i class="fa-solid fa-comment m-2"></i>
-              </button>
-            </div>
+            <div id="details-section" class="modal-footer"></div>
+            <button type="button" class="btn btn-dark">
+              Comment <i class="fa-solid fa-comment m-2"></i>
+            </button>
           </div>
         </div>
       </div>

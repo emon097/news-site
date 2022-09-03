@@ -1,10 +1,11 @@
 
 .catagory {
     text-decoration: none;
-    padding: 15vh;
+    padding: 9vh;
 }
+
 .addpadinng{
-    padding: 8vh;
+    padding: 22vh;
    padding-top: 0vh;
 }
 .logo-color{
@@ -18,7 +19,7 @@
 
 .navhandel{
     background-color: rgb(238, 226, 176);
-    flex: auto;
+    
     
     
 }
@@ -30,3 +31,18 @@
     font-size: 3.5vh;
     font-weight: 500;
 }
+
+
+
+@media only screen and ( max-width:688px )
+{  
+    .addpadinng{
+        padding: 5vh;
+      
+    }
+    .catagory{
+        flex-direction:column-reverse;
+        /* flex-direction: row-reverse; */
+    }
+    
+ } 

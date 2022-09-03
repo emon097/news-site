@@ -12,14 +12,11 @@ const desplaycatagory = (news) => {
 
     const creatediv = document.createElement("ul");
     creatediv.classList.add("jusitify");
-
     creatediv.innerHTML = `
-    
-  <a onclick="loadfullnews('${portal.category_id}')" class="nav-link " href="#"> ${portal.category_name}  </a>
-
+  <a onclick="loadfullnews('${portal.category_id}')" class="nav-link"href="#"> ${portal.category_name}  </a>
     `;
 
-    toggleSpinner(true);
+    // toggleSpinner(true);
     catagoryoption.appendChild(creatediv);
   }
 };
@@ -45,8 +42,8 @@ const desplayfullnews = (news) => {
     const creatediv = document.createElement("div");
     creatediv.classList.add("col");
     creatediv.innerHTML = `
-    <div class="card">
-      <img src="${allNews.thumbnail_url}" class="card-img-top" alt="...">
+    <div class="card mb-4 ">
+      <img src="${allNews.thumbnail_url}" class="  card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${allNews.title.slice(0, 30) + "..."}</h5>
         <p class="card-text">${allNews.details.slice(0, 70) + "..."}</p>
@@ -77,7 +74,7 @@ const desplayfullnews = (news) => {
       }')" class="btn btn-dark">Details<i class=" m-1 fa-solid fa-circle-right"></i></button>
     </div>
     `;
-    toggleSpinner(false);
+    // toggleSpinner(false);
     CatagoryInfo.appendChild(creatediv);
   }
 };
@@ -95,33 +92,30 @@ const desplaydetails = (details) => {
 
   const detailsSection = document.getElementById("details-section");
   detailsSection.innerHTML = `
-  <img class="w-full" src="${details.thumbnail_url}" alt="">
-  <h5>${details.title}</h5>
-  <p>${details.details}</p>
-  <div class="d-flex align-items-start" >
-  <img class="w-25 h-25 p-4  rounded-circle " src="${
-    details.author.img
-  }" alt="">
-  <p class="p-1 mt-4 p-1" >${
-    details.author.name ? details.author.name : "no-name"
-  }
-  
-  </p>
-  <p class="mt-4 ms-2 p-1 " > <span class="text-success    ">Date:</span> ${
-    details.author.published_date
-  }</p>
-  
-
+  <div class=" mb-4 ">
+  <img src="${details.thumbnail_url}" class="  card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${details.title}</h5>
+    <p class="card-text">${details.details}</p>
+    <div class= "d-flex" >
+    <img class="w-25 h-25 p-1 rounded-circle " src="${
+      details.author.img
+    }" alt="">
+    <p class="p-1 " >${
+      details.author.name ? details.author.name : "no-name"
+    }</p>
+    <p class="mt-1 p-1 ms-3"  > <span class="text-primary" >Date:</span> ${
+      details.author.published_date
+    }</p>
+    </div>
+   
   </div>
-  <div class=" mt-4  " >
+  <div  >
   <i class="fa-solid fa-users-viewfinder m-1 "></i>
   ${details.total_view}
-  <div class="ms-3"  >
-  
-  </div>
-  </div>
-  
 
+  </div>
+</div>
   
   `;
 };
