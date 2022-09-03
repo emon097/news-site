@@ -7,16 +7,16 @@ const loadCatagory = () => {
 
 const desplaycatagory = (news) => {
   const catagoryoption = document.getElementById("catagory");
+
   for (const portal of news) {
     // console.log(portal);
-
+    toggleSpinner(true);
     const creatediv = document.createElement("ul");
     creatediv.classList.add("jusitify");
     creatediv.innerHTML = `
   <a onclick="loadfullnews('${portal.category_id}')" class="nav-link"href="#"> ${portal.category_name}  </a>
     `;
 
-    // toggleSpinner(true);
     catagoryoption.appendChild(creatediv);
   }
 };
@@ -74,7 +74,7 @@ const desplayfullnews = (news) => {
       }')" class="btn btn-dark">Details<i class=" m-1 fa-solid fa-circle-right"></i></button>
     </div>
     `;
-    // toggleSpinner(false);
+    toggleSpinner(false);
     CatagoryInfo.appendChild(creatediv);
   }
 };
@@ -131,10 +131,6 @@ const toggleSpinner = (isloading) => {
   }
 };
 // spninner section
-
-// not-fund-section
-
-// not-fund-section
 
 loadCatagory();
 loadfullnews("01");
