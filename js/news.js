@@ -39,13 +39,26 @@ const desplayfullnews = (news) => {
         <h5 class="card-title">${allNews.title.slice(0, 30) + "..."}</h5>
         <p class="card-text">${allNews.details.slice(0, 70) + "..."}</p>
         <div class= "d-flex" >
-        <img class="w-25 h-25 rounded-circle " src="${
+        <img class="w-25 h-25 p-1 rounded-circle " src="${
           allNews.author.img
         }" alt="">
-        <p>${allNews.author.name ? allNews.author.name : "noname"}</p>
+        <p class="p-1" >${
+          allNews.author.name ? allNews.author.name : "no-name"
+        }</p>
         <p>${allNews.author.published_date}</p>
         </div>
-
+        <div class="d-flex" >
+        <i class="fa-solid fa-users-viewfinder m-1 "></i>
+        ${allNews.total_view}
+        <div class="ms-3"  >
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        
+        </div>
+        </div>
       </div>
       <button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="loaddetails('${
         allNews._id
@@ -71,7 +84,32 @@ const desplaydetails = (details) => {
   detailsSection.innerHTML = `
   <img src="${details.thumbnail_url}" alt="">
   <p>${details.details}</p>
-  <img class="w-25 h-25  " src="${details.author.img}" alt="">
+  <div class="d-flex align-items-start" >
+  <img class="w-25 h-25 p-4  rounded-circle " src="${
+    details.author.img
+  }" alt="">
+  <p class="p-1 mt-4 p-1" >${
+    details.author.name ? details.author.name : "no-name"
+  }
+  
+  
+  </p>
+  <p class="mt-4 ms-2 p-1 " > <span class="text-success  font-bold  ">Date:</span> ${
+    details.author.published_date
+  }</p>
+  
+
+  </div>
+  <div class=" mt-4  " >
+  <i class="fa-solid fa-users-viewfinder m-1 "></i>
+  ${details.total_view}
+  <div class="ms-3"  >
+  
+  </div>
+  </div>
+  
+
+  
   `;
 };
 
