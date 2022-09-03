@@ -1,14 +1,14 @@
 
-#catagory {
+.catagory {
     text-decoration: none;
     padding: 15vh;
 }
 .addpadinng{
-    padding: 25vh;
+    padding: 8vh;
    padding-top: 0vh;
 }
 .logo-color{
-    background-color:rgb(201, 163, 81);
+    background-color:rgb(201, 191, 169);
     padding: 5vh;
     padding-top: 3vh;
     padding-bottom: 5vh;
@@ -27,6 +27,6 @@
     justify-content:flex-end;
 }
 .font{
-    font-size: 3vh;
+    font-size: 3.5vh;
     font-weight: 500;
 }

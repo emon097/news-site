@@ -9,12 +9,17 @@ const desplaycatagory = (news) => {
   const catagoryoption = document.getElementById("catagory");
   for (const portal of news) {
     // console.log(portal);
+
     const creatediv = document.createElement("ul");
     creatediv.classList.add("jusitify");
+
     creatediv.innerHTML = `
-  <a onclick="loadfullnews('${portal.category_id}')" class="nav-link " href="#"> ${portal.category_name}</a>
-</nav>
+    
+  <a onclick="loadfullnews('${portal.category_id}')" class="nav-link " href="#"> ${portal.category_name}  </a>
+
     `;
+
+    // toggleSpinner(true);
     catagoryoption.appendChild(creatediv);
   }
 };
@@ -29,6 +34,8 @@ const loadfullnews = (category_id) => {
 const desplayfullnews = (news) => {
   const CatagoryInfo = document.getElementById("catagory-info");
   CatagoryInfo.innerText = "";
+  // desplay-notfound
+
   for (const allNews of news) {
     const creatediv = document.createElement("div");
     creatediv.classList.add("col");
@@ -42,7 +49,7 @@ const desplayfullnews = (news) => {
         <img class="w-25 h-25 p-1 rounded-circle " src="${
           allNews.author.img
         }" alt="">
-        <p class="p-1" >${
+        <p class="p-1 " >${
           allNews.author.name ? allNews.author.name : "no-name"
         }</p>
         <p>${allNews.author.published_date}</p>
@@ -65,6 +72,7 @@ const desplayfullnews = (news) => {
       }')" class="btn btn-dark">Details<i class=" m-1 fa-solid fa-circle-right"></i></button>
     </div>
     `;
+    // toggleSpinner(false);
     CatagoryInfo.appendChild(creatediv);
   }
 };
@@ -79,10 +87,11 @@ const loaddetails = (news_id) => {
 
 const desplaydetails = (details) => {
   const postdetails = document.getElementById("modaltitle");
-  postdetails.innerText = details.title;
+
   const detailsSection = document.getElementById("details-section");
   detailsSection.innerHTML = `
-  <img src="${details.thumbnail_url}" alt="">
+  <img class="w-full" src="${details.thumbnail_url}" alt="">
+  <h5>${details.title}</h5>
   <p>${details.details}</p>
   <div class="d-flex align-items-start" >
   <img class="w-25 h-25 p-4  rounded-circle " src="${
@@ -92,9 +101,8 @@ const desplaydetails = (details) => {
     details.author.name ? details.author.name : "no-name"
   }
   
-  
   </p>
-  <p class="mt-4 ms-2 p-1 " > <span class="text-success  font-bold  ">Date:</span> ${
+  <p class="mt-4 ms-2 p-1 " > <span class="text-success    ">Date:</span> ${
     details.author.published_date
   }</p>
   
@@ -114,6 +122,20 @@ const desplaydetails = (details) => {
 };
 
 // details-section
+// spninner section
+const toggleSpinner = (isloading) => {
+  const loading = document.getElementById("spinner");
+  if (isloading) {
+    loading.classList.remove("d-none");
+  } else {
+    loading.classList.add("d-none");
+  }
+};
+// spninner section
+
+// not-fund-section
+
+// not-fund-section
 
 loadCatagory();
 loadfullnews("01");
