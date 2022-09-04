@@ -2,15 +2,18 @@ const loadCatagory = () => {
   const url = `https://openapi.programming-hero.com/api/news/categories`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => desplaycatagory(data.data.news_category));
+    .then((data) => desplaycatagory(data.data.news_category))
+    .catch((error) => console.log(error));
 };
 
 const desplaycatagory = (news) => {
   const catagoryoption = document.getElementById("catagory");
 
   for (const portal of news) {
+    console.log(portal);
     // console.log(portal);
-    toggleSpinner(true);
+    const catagoryname = (document.getElementById("catgoryname").innerText =
+      portal.category_name);
     const creatediv = document.createElement("ul");
     creatediv.classList.add("jusitify");
     creatediv.innerHTML = `
@@ -25,20 +28,24 @@ const loadfullnews = (category_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => desplayfullnews(data.data));
+    .then((data) => desplayfullnews(data.data))
+    .catch((error) => console.log(error));
 };
 
-const desplayfullnews = (news) => {
+const desplayfullnews = (fullnews) => {
+  const newslength = (document.getElementById("lengthnews").innerText =
+    fullnews.length);
+  toggleSpinner(true);
   const CatagoryInfo = document.getElementById("catagory-info");
   CatagoryInfo.innerText = "";
   // desplay-notfound
   const nofound = document.getElementById("Not-Found");
-  if (news.length === 0) {
+  if (fullnews.length === 0) {
     nofound.classList.remove("d-none");
   } else {
     nofound.classList.add("d-none");
   }
-  for (const allNews of news) {
+  for (const allNews of fullnews) {
     const creatediv = document.createElement("div");
     creatediv.classList.add("col");
     creatediv.innerHTML = `
@@ -74,9 +81,10 @@ const desplayfullnews = (news) => {
       }')" class="btn btn-dark">Details<i class=" m-1 fa-solid fa-circle-right"></i></button>
     </div>
     `;
-    toggleSpinner(false);
+
     CatagoryInfo.appendChild(creatediv);
   }
+  toggleSpinner(false);
 };
 
 // details-section
@@ -84,12 +92,12 @@ const loaddetails = (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => desplaydetails(data.data[0]));
+    .then((data) => desplaydetails(data.data[0]))
+    .catch((error) => console.log(error));
 };
 
 const desplaydetails = (details) => {
   const postdetails = document.getElementById("modaltitle");
-
   const detailsSection = document.getElementById("details-section");
   detailsSection.innerHTML = `
   <div class=" mb-4 ">

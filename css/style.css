@@ -14,12 +14,12 @@
     padding-top: 3vh;
     padding-bottom: 5vh;
     border-radius: 1.5vh;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
 }
 
 .navhandel{
     background-color: rgb(238, 226, 176);
-    
+   
     
     
 }
@@ -32,6 +32,17 @@
     font-weight: 500;
 }
 
+.edit{
+    padding: 2vh;
+    color: rgb(0, 0, 0);
+    margin-left: 23vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 2vh;
+    width: 120vh;
+    background-color: rgb(238, 226, 176);
+}
 
 
 @media only screen and ( max-width:688px )
