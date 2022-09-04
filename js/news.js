@@ -17,7 +17,7 @@ const desplaycatagory = (news) => {
     const creatediv = document.createElement("ul");
     creatediv.classList.add("jusitify");
     creatediv.innerHTML = `
-  <a onclick="loadfullnews('${portal.category_id}')" class="nav-link"href="#"> ${portal.category_name}  </a>
+  <a  onclick="loadfullnews('${portal.category_id}')" class=" text-hover nav-link"href="#"> ${portal.category_name}  </a>
     `;
 
     catagoryoption.appendChild(creatediv);
@@ -59,13 +59,17 @@ const desplayfullnews = (fullnews) => {
           allNews.author.img
         }" alt="">
         <p class="p-1 " >${
-          allNews.author.name ? allNews.author.name : "no-name"
+          allNews.author.name ? allNews.author.name : "no name"
         }</p>
-        <p>${allNews.author.published_date}</p>
+        <p>${
+          allNews.author.published_date
+            ? allNews.author.published_date
+            : "no  date available"
+        }</p>
         </div>
         <div class="d-flex" >
         <i class="fa-solid fa-users-viewfinder m-1 "></i>
-        ${allNews.total_view}
+        ${allNews.total_view ? allNews.total_view : "no view"}
         <div class="ms-3"  >
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
@@ -110,17 +114,19 @@ const desplaydetails = (details) => {
       details.author.img
     }" alt="">
     <p class="p-1 " >${
-      details.author.name ? details.author.name : "no-name"
+      details.author.name ? details.author.name : "no name"
     }</p>
     <p class="mt-1 p-1 ms-3"  > <span class="text-primary" >Date:</span> ${
       details.author.published_date
+        ? details.author.published_date
+        : "no date available"
     }</p>
     </div>
    
   </div>
   <div  >
   <i class="fa-solid fa-users-viewfinder m-1 "></i>
-  ${details.total_view}
+  ${details.total_view ? details.total_view : "no view"}
 
   </div>
 </div>
